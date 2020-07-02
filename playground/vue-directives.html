@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Driectives</title>
+    <style>
+      .text-blue {
+        color: blue;
+      }
+      .text-red {
+        color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app" v-bind:class="className">hello Vue.js</div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        className: "text-blue",
+      },
+    });
+  </script>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input - p sync</title>
+  </head>
+  <body>
+    <div>
+      <p>Vanilla Javascript</p>
+      <input id="input-text" type="input" />
+      <p id="show-text"></p>
+
+      <p>vue.js</p>
+      <div id="app">
+        <input v-model="text" type="text" />
+        <p>{{text}}</p>
+      </div>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    // Vanilla Javascript
+    const $inputText = document.querySelector("#input-text");
+    const $showText = document.querySelector("#show-text");
+
+    const syncInputAndP = function (event) {
+      const inputValue = event.target.value;
+      $showText.innerHTML = inputValue;
+    };
+
+    $inputText.addEventListener("keyup", syncInputAndP);
+
+    // Vue.js
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        text: "",
+      },
+    });
+  </script>
+</html>

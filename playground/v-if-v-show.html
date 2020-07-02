@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-if vs v-show</title>
+</head>
+<body>
+    <div id="app">
+    <div v-if="toggleLoding">v-if Loding...</div>
+    <div v-show="toggleLoding">v-show Loding...</div>
+</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script>
+    const vm = new Vue({
+        el: '#app',
+        data: {
+            toggleLoding: true,
+        }
+    })
+</script>
+</html>
