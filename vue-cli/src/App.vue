@@ -1,28 +1,38 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <app-header v-bind:header="header"></app-header>
+    <hello-world></hello-world>
+    <div>
+    </div>
+      <p>Event emit</p>
+      <event-emit v-on:pass="addNumber"></event-emit>
+      <p>{{ num }}</p>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import helloWorld from "./components/helloWorld";
+import appHeader from "./components/AppHeader";
+import eventEmit from "./components/EventEmit";
 
 export default {
-  name: 'App',
+  data: function() {
+    return {
+      header: "Header",
+      num: 0,
+    };
+  },
   components: {
-    HelloWorld
-  }
-}
+    "hello-world": helloWorld,
+    "app-header": appHeader,
+    "event-emit": eventEmit,
+  },
+  methods: {
+    addNumber: function() {   
+      this.num++;
+    },
+  },
+};
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+<style></style>
