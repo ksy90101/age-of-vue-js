@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Object.defineProperty()</title>
+  </head>
+  <body>
+    <div id="app">10</div>
+  </body>
+  <script>
+    const app = document.querySelector("#app");
+    const viewModel = {};
+
+    Object.defineProperty(viewModel, "str", {
+      get: function () {
+        return app.innerHTML;
+      },
+      set: function (newValue) {
+        app.innerHTML = newValue;
+      },
+    });
+  </script>
+</html>

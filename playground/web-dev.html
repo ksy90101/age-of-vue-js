@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Web Dev</title>
+  </head>
+  <body>
+    <div></div>
+  </body>
+  <script>
+    const div = document.querySelector("div");
+    console.log(div);
+    let str = "hello world";
+    div.innerHTML = str;
+
+    str = "hello world!!!!!";
+    // 텍스트를 변경하려면 div를 또 조작해야 한다.
+    div.innerHTML = str;
+  </script>
+</html>
