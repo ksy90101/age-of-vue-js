@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>props</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-bind:message="message"></app-header>
+      <app-content v-bind:num="num"></app-content>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const appHeader = {
+      template: "<h1>{{ message }}</h1>",
+      props: ["message"],
+    };
+
+    const appContent = {
+        template: '<div>{{ num }}</div>',
+        props: ['num']
+    }
+
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        message: "Header",
+        num: 10
+      },
+      components: {
+        "app-header": appHeader,
+        'app-content': appContent
+      },
+    });
+  </script>
+</html>

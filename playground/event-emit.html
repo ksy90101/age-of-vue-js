@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event Emit</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-header v-on:pass="sandEvent"></app-header>
+        <p>{{ num }}</p>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const appHeader = {
+      template: '<button v-on:click="passEvent">Click me!</button>',
+      methods: {
+        passEvent: function () {
+          this.$emit('pass', 10);
+        },
+      },
+    };
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        num: 0,
+      },
+      components: {
+        "app-header": appHeader,
+      },
+      methods: {
+        sandEvent: function (num) {
+            this.num = num
+        },
+      },
+    });
+  </script>
+</html>

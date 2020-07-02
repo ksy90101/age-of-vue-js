@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Event emit</title>
+  </head>
+  <body>
+    <div id="app">
+      <app-content v-on:pass="addNumber"></app-content>
+      <p>{{num}}</p>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const appContent = {
+      template: '<button v-on:click="addNumber">Increase!!!</button>',
+      methods: {
+        addNumber: function () {
+          this.$emit("pass");
+        },
+      },
+    };
+    const vm = new Vue({
+      el: "#app",
+      data: {
+        num: 0,
+      },
+      components: {
+        "app-content": appContent,
+      },
+      methods: {
+        addNumber: function () {
+          this.num++;
+        },
+      },
+    });
+  </script>
+</html>
