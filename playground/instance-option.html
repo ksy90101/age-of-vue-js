@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Instance Option</title>
+  </head>
+  <body>
+    <div id="app1">{{message}}</div>
+    <div id="app2">{{message}}</div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <script>
+    const options = {
+      el: "#app1",
+      data: {
+        message: "hi1",
+      },
+    };
+    const vm1 = new Vue(options);
+
+    // Vue가 추구하는 방식
+    const vm2 = new Vue({
+      el: "#app2",
+      data: {
+        message: "hi2",
+      },
+    });
+  </script>
+</html>
